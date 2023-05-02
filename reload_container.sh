@@ -56,7 +56,7 @@ docker cp ./setup_container_env.sh $dockerid:/home/$USER/
 check_success "Error copying the script to container"
 
 log "Execute the script on container"
-docker exec -it --user $USER $dockerid sh -c "/home/$USER/setup_container_env.sh && source ~/.bashrc"
+docker exec -it --user $USER $dockerid sh -c "/home/$USER/setup_container_env.sh $1 && source ~/.bashrc"
 check_success "Error executing the script on the container"
 
 echo "Done!"
