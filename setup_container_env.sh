@@ -10,9 +10,6 @@ function check_success() {
 # Step 1
 echo ">>> Setting up environment..."
 SHELL_ENV="
-# Fix 'backspace' key in some terminals.
-export TERM=xterm-256color
-
 # Add clangd to PATH.
 export PATH=/opt/llvm-13.0_038/bin/:\$PATH
 
@@ -52,7 +49,7 @@ echo "
 ##############################################
 >>> Install NeoVim...
 ##############################################"
-zap install --update neovim
+zap install --update --select-first --silent neovim
 check_success "Fail to install NeoVim!"
 
 # Step 3
@@ -139,17 +136,14 @@ check_success "Fail to install scan-build tool!"
 # Step 10
 echo "
 ##############################################
->>> Configuring zsh...
+>>> Configuring oh-my-bash...
 ##############################################"
-sudo yum install -y zsh
-check_success "Fail to install zsh!"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
+check_success "Fail to install oh-my-bash!"
 
-sh -c "RUNZSH='no' $(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-check_success "Fail to install OhMyZsh!"
+sed -i '/OSH_THEME=*/c OSH_THEME=\"powerline-multiline\"' ~/.bashrc
+check_success "Fail to change oh-my-bash theme!"
 
-echo "$SHELL_ENV" >>~/.zshrc
+echo "$SHELL_ENV" >>~/.bashrc
 
 echo "DONE!"
-
-# NOTICE: You probably should run:
-# source ~/.bashrc
