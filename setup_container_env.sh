@@ -23,7 +23,6 @@ export PATH=~/.local/bin/go/bin:\$PATH
 # Aliases.
 alias ls='exa --icons'
 alias la='exa --icons --all --long --git'
-alias tr='exa --icons --tree'
 alias trr='exa --icons --tree --level 1'
 alias trrr='exa --icons --tree --level 2'
 alias trrrr='exa --icons --tree --level 3'
@@ -145,5 +144,3 @@ sed -i '/OSH_THEME=*/c OSH_THEME=\"powerline-multiline\"' ~/.bashrc
 check_success "Fail to change oh-my-bash theme!"
 
 echo "$SHELL_ENV" >>~/.bashrc
-
-echo "DONE!"
