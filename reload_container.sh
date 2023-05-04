@@ -25,19 +25,19 @@ function check_success() {
 
 log "Stop Docker container"
 docker stop $dockerid
-check_success "Error stopping container"
+#check_success "Error stopping container"
 
 # Update code
 log "Update MN common repo"
 cd /var/work/$USER/common
 git pull --rebase origin master
-check_success "Error pull common"
+#check_success "Error pull common"
 cd -
 
 log "Update l1sw repo"
 cd /var/work/$USER/l1sw
 git pull --rebase --recurse-submodules origin master
-check_success "Error pull l1sw"
+#check_success "Error pull l1sw"
 cd -
 
 log "Check Artifactory keys"
@@ -48,7 +48,7 @@ log "Start container"
 cd /var/work/$USER/l1sw
 make env L1SW_SSH=ON
 dockerid=$(docker ps | grep $USER | awk '{print $1;}')
-check_success "Error creating container"
+#check_success "Error creating container"
 cd -
 
 log "Copy container script"
