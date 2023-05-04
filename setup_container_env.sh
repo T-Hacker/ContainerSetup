@@ -18,7 +18,7 @@ export APPIMAGE_EXTRACT_AND_RUN=1
 
 # Add Golang paths.
 export GOPATH=\$HOME/go
-export PATH=~/.local/bin/go/bin:\$PATH
+export PATH=~/.local/bin/go/bin:\$GOPATH/bin:\$PATH
 
 # Aliases.
 alias ls='exa --icons'
