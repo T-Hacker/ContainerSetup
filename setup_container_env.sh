@@ -23,6 +23,7 @@ export PATH=~/.local/bin/go/bin:\$PATH
 # Aliases.
 alias ls='exa --icons'
 alias la='exa --icons --all --long --git'
+alias ll='la'
 alias trr='exa --icons --tree --level 1'
 alias trrr='exa --icons --tree --level 2'
 alias trrrr='exa --icons --tree --level 3'
