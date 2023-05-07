@@ -102,6 +102,14 @@ check_success "Fail to install exa!"
 # Step 7
 echo "
 ##############################################
+>>> Installing zellij...
+##############################################"
+cargo install zellij
+check_success "Fail to install zellij!"
+
+# Step 8
+echo "
+##############################################
 >>> Installing Golang...
 ##############################################"
 GOLANG_PAYLOAD="go1.20.3.linux-amd64.tar.gz"
@@ -117,7 +125,7 @@ rm -rf ~/.local/bin/go
 mv -vf go ~/.local/bin/
 rm $GOLANG_PAYLOAD
 
-# Step 8
+# Step 9
 echo "
 ##############################################
 >>> Installing LazyGit...
@@ -125,7 +133,7 @@ echo "
 go install github.com/jesseduffield/lazygit@latest
 check_success "Fail to install LazyGit!"
 
-# Step 9
+# Step 10
 echo "
 ##############################################
 >>> Instaling scan-build...
@@ -133,7 +141,7 @@ echo "
 pip install scan-build
 check_success "Fail to install scan-build tool!"
 
-# Step 10
+# Step 11
 echo "
 ##############################################
 >>> Configuring oh-my-bash...
