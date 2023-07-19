@@ -38,7 +38,7 @@ git pull --rebase --recurse-submodules origin master
 cd -
 
 log "Check Artifactory keys"
-/var/work/m1martin/common/tools/store_artifactory_host_keys.py
+/var/work/$USER/common/tools/store_artifactory_host_keys.py
 check_success "Error on common keys"
 
 log "Start container"
